@@ -13,7 +13,7 @@ int main(){
         for (int j = 0; j < 12; j++)
         {
             scanf("%f",&M[i][j]);
-            if (j+1<12-i)
+            if (j<i && j+1<12-i)
             {
                 soma = soma + M[i][j];
                 cont++;
