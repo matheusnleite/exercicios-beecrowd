@@ -1,33 +1,18 @@
 #include <stdio.h>
-#include <math.h>
 
-int main(){
-    int G,num;
+int main() {
+    int G;
+    scanf("%d", &G);
 
-    scanf("%d",&G);
+    int rows = 1 << G; // Calcula o número de linhas (2^G)
 
-    int linhas = pow(2,G);
-
-    int tabela [G][linhas];
-
-    for (int i = 0; i < pow(2,G) ; i++)
-    {
-        num=i;
-        for (int j = 0; j < G; j++)
-        {
-            tabela[i][j] = num%2;
+    for (int i = 0; i < rows; i++) {
+        for (int j = G - 1; j >= 0; j--) {
+            printf("%d", (i >> j) & 1); // Calcula o valor na coluna j
+            if(j>0)printf(" ");
         }
-        
+        printf("\n");
     }
 
-    for (int i = 0; i < pow(2,G) ; i++)
-    {
-        num=i;
-        for (int j = 0; j < G; j++)
-        {
-            printf("%d ",tabela[i][j]);
-        }
-        
-    }
-    
+    return 0;
 }
